@@ -47,9 +47,9 @@ if (typeof window !== "undefined") {
     document.querySelector("#date-container .days").textContent = diff.days;
     document.querySelector("#date-container .hours").textContent = diff.hours;
     document.querySelector("#date-container .minutes").textContent =
-      diff.minutes;
+      diff.minutes.toString().padStart(2, 0);
     document.querySelector("#date-container .seconds").textContent =
-      diff.seconds;
+      diff.seconds.toString().padStart(2, 0);
   };
   const newYear = new Date("1 jan 2021").getTime();
 
