@@ -39,3 +39,20 @@ setInterval(function(newYear) {
   console.clear();
   console.log(result);
 }, 1000, new Date("1 jan 2021").getTime());
+
+if (typeof window !== "undefined") {
+  const showDiffInWindow = function(newYear) {
+    const diff = dateDiff(newYear, Date.now());
+
+    document.querySelector("#date-container .days").textContent = diff.days;
+    document.querySelector("#date-container .hours").textContent = diff.hours;
+    document.querySelector("#date-container .minutes").textContent =
+      diff.minutes;
+    document.querySelector("#date-container .seconds").textContent =
+      diff.seconds;
+  };
+  const newYear = new Date("1 jan 2021").getTime();
+
+  showDiffInWindow(newYear);
+  setInterval(showDiffInWindow, 1000, newYear);
+}
